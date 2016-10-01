@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-transform-inline-localize-css-import",
   "version": "0.0.1",
-  "description": "Inline import theme from './file.css' to var theme = {code, classNames}; while allowing for localization of class names and animations",
+  "description": "Inline and localize import theme from \"file.css\"",
   "main": "lib/index.js",
   "repository": "algolia/babel-plugin-transform-inline-localize-css-import",
   "scripts": {
