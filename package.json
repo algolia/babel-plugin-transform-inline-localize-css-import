@@ -1,0 +1,35 @@
+{
+  "name": "babel-plugin-transform-inline-localize-css-import",
+  "version": "0.0.1",
+  "description": "Inline import theme from './file.css' to var theme = {code, classNames}; while allowing for localization of class names and animations",
+  "main": "lib/index.js",
+  "repository": "algolia/babel-plugin-transform-inline-localize-css-import",
+  "scripts": {
+    "test": "jest && eslint .",
+    "prepublish": "babel src --out-dir lib --ignore .test.js,__mocks__,__snapshots__"
+  },
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "babel-plugin",
+    "css-modules"
+  ],
+  "author": "Algolia (https://github.com/algolia/)",
+  "license": "MIT",
+  "dependencies": {
+    "css-selector-tokenizer": "0.7.0",
+    "cssom": "0.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.16.0",
+    "babel-core": "6.16.0",
+    "babel-preset-latest": "6.16.0",
+    "babel-preset-stage-2": "6.16.0",
+    "conventional-changelog-cli": "1.2.0",
+    "doctoc": "1.2.0",
+    "eslint-config-algolia": "6.0.0",
+    "jest": "15.1.1",
+    "json": "9.0.4"
+  }
+}
