@@ -13,7 +13,9 @@
   ],
   "keywords": [
     "babel-plugin",
-    "css-modules"
+    "css",
+    "import",
+    "babel"
   ],
   "author": "Algolia (https://github.com/algolia/)",
   "license": "MIT",
