@@ -1,4 +1,4 @@
-# babel-plugin-transform-inline-localize-css-import-import
+# babel-plugin-transform-inline-localize-css-import
 
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
