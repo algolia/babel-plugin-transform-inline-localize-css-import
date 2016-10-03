@@ -74,8 +74,18 @@ babel Component.js
 
 ## Test
 
+Runs tests and lint.
+
 ```sh
 npm test
+```
+
+## Dev
+
+Runs tests in watch mode.
+
+```sh
+npm run dev
 ```
 
 ## Release

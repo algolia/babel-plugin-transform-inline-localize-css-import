@@ -8,7 +8,7 @@
     "lint": "if [ \"$CI\" = \"true\" ]; then eslint .; else eslint . --cache; fi",
     "lint:fix": "npm run lint eslint . --fix",
     "test": "jest && npm run lint",
-    "dev": "jest --watch",
+    "dev": "jest --watch --bail",
     "release": "./scripts/release.sh",
     "prepublish": "babel src --out-dir lib --ignore .test.js,__mocks__,__snapshots__"
   },
