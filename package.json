@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-inline-localize-css-import",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Inline and localize import theme from \"file.css\"",
   "main": "lib/index.js",
   "repository": "algolia/babel-plugin-transform-inline-localize-css-import",

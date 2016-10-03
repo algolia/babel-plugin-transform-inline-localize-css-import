@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [babel-plugin-transform-inline-localize-css-import](#babel-plugin-transform-inline-localize-css-import)
+  - [Quickstart](#quickstart)
+  - [Configuration](#configuration)
+  - [Test](#test)
+  - [Release](#release)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # babel-plugin-transform-inline-localize-css-import
 
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
