@@ -2,9 +2,12 @@
 
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
-**Inline and localize `import`ed CSS files to {classNames, code}.**
+**Inline and localize `import theme from 'Component.css'` to {classNames, code}.**
 
 This is similar to [css modules](https://github.com/css-modules/css-modules) localize as it will allow you to localize class names and animations.
+
+Combining with [substack/insert-css](https://github.com/substack/insert-css) provides a simple
+solution component based website or libraries styling.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
