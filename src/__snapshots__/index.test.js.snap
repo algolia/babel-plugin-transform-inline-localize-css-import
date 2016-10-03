@@ -1,49 +1,49 @@
 exports[`test basic 1`] = `
 "var theme = {
-  code: ".ais-SearchBox__className {}",
+  code: \".ais-Component__className {}\",
   classNames: {
-    className: "ais-SearchBox__className"
+    className: \"ais-Component__className\"
   }
 };"
 `;
 
 exports[`test different JavaScript code 1`] = `
 "var theme = {
-  code: ".ais-SearchBox__className {}",
+  code: \".ais-Component__className {}\",
   classNames: {
-    className: "ais-SearchBox__className"
+    className: \"ais-Component__className\"
   }
 };
-a + a;import "module";"
+a + a;import \"module\";"
 `;
 
-exports[`test different filename 1`] = `
+exports[`test different cssFilename 1`] = `
 "var theme = {
-  code: ".ais-yo__className {}",
+  code: \".ais-CustomComponent__className {}\",
   classNames: {
-    className: "ais-yo__className"
+    className: \"ais-CustomComponent__className\"
   }
 };"
 `;
 
 exports[`test keyframes rule 1`] = `
 "var theme = {
-  code: ".ais-SearchBox__className{animation-name: ais-SearchBox__hide;color:blue}@keyframes ais-SearchBox__hide {0%{opacity:0}};",
+  code: \".ais-Component__className{animation-name: ais-Component__hide;color:blue}@keyframes ais-Component__hide {0%{opacity:0}};\",
   classNames: {
-    className: "ais-SearchBox__className"
+    className: \"ais-Component__className\"
   }
 };"
 `;
 
 exports[`test multiple class names 1`] = `
 "var theme = {
-  code: ".ais-SearchBox__a .ais-SearchBox__b, .ais-SearchBox__c ~ .ais-SearchBox__d, .ais-SearchBox__d > .ais-SearchBox__e {color:blue}",
+  code: \".ais-Component__a .ais-Component__b, .ais-Component__c ~ .ais-Component__d, .ais-Component__d > .ais-Component__e {color:blue}\",
   classNames: {
-    a: "ais-SearchBox__a",
-    b: "ais-SearchBox__b",
-    c: "ais-SearchBox__c",
-    d: "ais-SearchBox__d",
-    e: "ais-SearchBox__e"
+    a: \"ais-Component__a\",
+    b: \"ais-Component__b\",
+    c: \"ais-Component__c\",
+    d: \"ais-Component__d\",
+    e: \"ais-Component__e\"
   }
 };"
 `;

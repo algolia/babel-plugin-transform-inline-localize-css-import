@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "repository": "algolia/babel-plugin-transform-inline-localize-css-import",
   "scripts": {
-    "test": "jest && eslint .",
+    "lint": "if [ \"$CI\" = \"true\" ]; then eslint .; else eslint . --cache; fi",
+    "lint:fix": "npm run lint eslint . --fix",
+    "test": "jest",
     "prepublish": "babel src --out-dir lib --ignore .test.js,__mocks__,__snapshots__"
   },
   "files": [

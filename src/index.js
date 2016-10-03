@@ -39,6 +39,12 @@ const extractClassNames = node => {
   return classNames;
 };
 
+const localize = ({localFormat = 'ais-$cssFileName__$token', jsFileName, cssFileName, token}) =>
+  localFormat
+    .replace(new RegExp('\\$jsFileName', 'g'), jsFileName)
+    .replace(new RegExp('\\$cssFileName', 'g'), cssFileName)
+    .replace(new RegExp('\\$token', 'g'), token);
+
 export default function({types: t}) {
   return {
     visitor: {
@@ -47,43 +53,41 @@ export default function({types: t}) {
           return;
         }
 
+        const localFormat = state.opts.localFormat;
         const jsFilePath = state.file.log.filename;
+        const cssFilePath = join(dirname(jsFilePath), path.node.source.value);
         const jsFileName = basename(jsFilePath, extname(jsFilePath));
+        const cssFileName = basename(cssFilePath, extname(cssFilePath));
 
-        let fileContent = readFileSync(
-          join(
-            dirname(jsFilePath),
-            path.node.source.value
-          )
-        ).toString();
+        let fileContent = readFileSync(cssFilePath).toString();
 
         const classNames = parseCSS(fileContent).cssRules.reduce(
           (res, rule) => {
             if (rule.type !== CSSRule.STYLE_RULE) return res;
 
             if (rule.style['animation-name'] !== undefined) {
-              const animationName = rule.style['animation-name'];
-              const newAnimationName = state.opts.localize({token: rule.style['animation-name'], jsFileName});
+              const token = rule.style['animation-name'];
+              const newToken = localize({localFormat, token, jsFileName, cssFileName});
               fileContent = fileContent.replace(
-                new RegExp(`animation-name: ${animationName}\\b`, 'g'),
-                `animation-name: ${newAnimationName}`
+                new RegExp(`animation-name: ${token}\\b`, 'g'),
+                `animation-name: ${newToken}`
               );
 
               fileContent = fileContent.replace(
-                new RegExp(`@keyframes ${animationName}\\b`, 'g'),
-                `@keyframes ${newAnimationName}`
+                new RegExp(`@keyframes ${token}\\b`, 'g'),
+                `@keyframes ${newToken}`
               );
             }
 
             const classNamesFromSelector = extractClassNames(parseSelector(rule.selectorText));
-            const newClassNames = classNamesFromSelector.reduce((_res, className) => {
-              if (res.hasOwnProperty(className)) return _res;
-              const newClassName = state.opts.localize({token: className, jsFileName});
-              const search = new RegExp(`\\.${className}\\b`, 'g');
+            const newClassNames = classNamesFromSelector.reduce((_res, token) => {
+              if (res.hasOwnProperty(token)) return _res;
+              const newClassName = localize({localFormat, token, jsFileName, cssFileName});
+              const search = new RegExp(`\\.${token}\\b`, 'g');
               fileContent = fileContent.replace(search, `.${newClassName}`);
               return {
                 ..._res,
-                [className]: newClassName,
+                [token]: newClassName,
               };
             }, {});
 
