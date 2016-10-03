@@ -51,7 +51,7 @@ conventional-changelog --preset angular --infile CHANGELOG.md --same-file
 
 # regenerate readme TOC
 printf "\n\nRelease: generate TOCS"
-doctoc README.md --maxlevel 2
+doctoc README.md --notitle --maxlevel 2
 
 npm version "$newVersion" --no-git-tag-version
 
