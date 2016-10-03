@@ -2,7 +2,7 @@
 
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
-**Inline and localize `import theme from 'Component.css'` to {classNames, code}.**
+**Inline and localize `import theme from './Component.css'` to {classNames, code}.**
 
 This is similar to [css modules](https://github.com/css-modules/css-modules) localize as it will allow you to localize class names and animations.
 
