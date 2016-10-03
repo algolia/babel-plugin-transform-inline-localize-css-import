@@ -16,6 +16,7 @@ solution component based website or libraries styling.
 - [Quickstart](#quickstart)
 - [Configuration](#configuration)
 - [Test](#test)
+- [Dev](#dev)
 - [Release](#release)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
