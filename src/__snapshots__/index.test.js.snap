@@ -1,17 +1,17 @@
 exports[`test basic 1`] = `
 "var theme = {
-  code: \".ais-Component__className {}\",
+  code: \".Component__className {}\",
   classNames: {
-    className: \"ais-Component__className\"
+    className: \"Component__className\"
   }
 };"
 `;
 
 exports[`test different JavaScript code 1`] = `
 "var theme = {
-  code: \".ais-Component__className {}\",
+  code: \".Component__className {}\",
   classNames: {
-    className: \"ais-Component__className\"
+    className: \"Component__className\"
   }
 };
 a + a;import \"module\";"
@@ -19,31 +19,31 @@ a + a;import \"module\";"
 
 exports[`test different cssFilename 1`] = `
 "var theme = {
-  code: \".ais-CustomComponent__className {}\",
+  code: \".CustomComponent__className {}\",
   classNames: {
-    className: \"ais-CustomComponent__className\"
+    className: \"CustomComponent__className\"
   }
 };"
 `;
 
 exports[`test keyframes rule 1`] = `
 "var theme = {
-  code: \".ais-Component__className{animation-name: ais-Component__hide;color:blue}@keyframes ais-Component__hide {0%{opacity:0}};\",
+  code: \".Component__className{animation-name: Component__hide;color:blue}@keyframes Component__hide {0%{opacity:0}};\",
   classNames: {
-    className: \"ais-Component__className\"
+    className: \"Component__className\"
   }
 };"
 `;
 
 exports[`test multiple class names 1`] = `
 "var theme = {
-  code: \".ais-Component__a .ais-Component__b, .ais-Component__c ~ .ais-Component__d, .ais-Component__d > .ais-Component__e {color:blue}\",
+  code: \".Component__a .Component__b, .Component__c ~ .Component__d, .Component__d > .Component__e {color:blue}\",
   classNames: {
-    a: \"ais-Component__a\",
-    b: \"ais-Component__b\",
-    c: \"ais-Component__c\",
-    d: \"ais-Component__d\",
-    e: \"ais-Component__e\"
+    a: \"Component__a\",
+    b: \"Component__b\",
+    c: \"Component__c\",
+    d: \"Component__d\",
+    e: \"Component__e\"
   }
 };"
 `;

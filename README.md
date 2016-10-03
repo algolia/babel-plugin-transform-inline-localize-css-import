@@ -2,7 +2,64 @@
 
 [![Version][version-svg]][package-url] [![Build Status][travis-svg]][travis-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
-Use at your own risk.
+**Inline and localize `import`ed CSS files to {classNames, code}.**
+
+This is similar to [css modules](https://github.com/css-modules/css-modules) localize as it will allow you to localize class names and animations.
+
+## Quickstart
+
+```sh
+npm install babel-plugin-transform-inline-localize-css --save-dev
+```
+
+**.babelrc**
+```json
+{
+  "plugins": [
+    ["babel-plugin-transform-inline-localize-css", {
+      "localFormat": "$cssFilename__$token"
+    }]
+  ]
+}
+```
+
+**Component.css**
+```css
+.item {
+  color: blue;
+}
+
+.itemSelected {
+  color: yellow;
+  animation-name: hide;
+}
+
+@keyframes hide {0%{opacity:0}}
+```
+
+**Component.js**
+```js
+import theme from './Component.css';
+```
+
+```sh
+babel Component.js
+
+# var theme = {
+#   classNames: {
+#     item: 'Component__item',
+#     itemSelected: 'Component__itemSelected'
+#   },
+#   code: 'Component__item \n{  color: blue}\n\nComponent__itemSelected \n{  color: yellow;\nanimation-name: Component__hide }\n\n@keyframes Component__hide {0%{opacity: 0}}'
+# }
+```
+
+## Configuration
+
+* **localFormat** (`string`): How to localize tokens. Available variables:
+  - `$cssFilename`: Filename, without extension, of the imported CSS file.
+  - `$jsFilename`: Filename, without extension of the module JavaScript file.
+  - `$token`: Current class name or animation-name to replace.
 
 ## Test
 

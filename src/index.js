@@ -39,10 +39,10 @@ const extractClassNames = node => {
   return classNames;
 };
 
-const localize = ({localFormat = 'ais-$cssFileName__$token', jsFileName, cssFileName, token}) =>
+const localize = ({localFormat = '$cssFilename__$token', jsFilename, cssFilename, token}) =>
   localFormat
-    .replace(new RegExp('\\$jsFileName', 'g'), jsFileName)
-    .replace(new RegExp('\\$cssFileName', 'g'), cssFileName)
+    .replace(new RegExp('\\$jsFilename', 'g'), jsFilename)
+    .replace(new RegExp('\\$cssFilename', 'g'), cssFilename)
     .replace(new RegExp('\\$token', 'g'), token);
 
 export default function({types: t}) {
@@ -56,8 +56,8 @@ export default function({types: t}) {
         const localFormat = state.opts.localFormat;
         const jsFilePath = state.file.log.filename;
         const cssFilePath = join(dirname(jsFilePath), path.node.source.value);
-        const jsFileName = basename(jsFilePath, extname(jsFilePath));
-        const cssFileName = basename(cssFilePath, extname(cssFilePath));
+        const jsFilename = basename(jsFilePath, extname(jsFilePath));
+        const cssFilename = basename(cssFilePath, extname(cssFilePath));
 
         let fileContent = readFileSync(cssFilePath).toString();
 
@@ -67,7 +67,7 @@ export default function({types: t}) {
 
             if (rule.style['animation-name'] !== undefined) {
               const token = rule.style['animation-name'];
-              const newToken = localize({localFormat, token, jsFileName, cssFileName});
+              const newToken = localize({localFormat, token, jsFilename, cssFilename});
               fileContent = fileContent.replace(
                 new RegExp(`animation-name: ${token}\\b`, 'g'),
                 `animation-name: ${newToken}`
@@ -82,7 +82,7 @@ export default function({types: t}) {
             const classNamesFromSelector = extractClassNames(parseSelector(rule.selectorText));
             const newClassNames = classNamesFromSelector.reduce((_res, token) => {
               if (res.hasOwnProperty(token)) return _res;
-              const newClassName = localize({localFormat, token, jsFileName, cssFileName});
+              const newClassName = localize({localFormat, token, jsFilename, cssFilename});
               const search = new RegExp(`\\.${token}\\b`, 'g');
               fileContent = fileContent.replace(search, `.${newClassName}`);
               return {
